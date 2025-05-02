@@ -1,0 +1,49 @@
+/* 通用行样式 */
+.row {
+    margin: 10px 0;
+}
+
+/* 第一行布局 */
+.first-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px; /* 添加20px的间隙 */
+}
+
+/* 绿色区块样式 */
+.left-block {
+    background-color: #4CAF50;
+    padding: 20px;
+    width: 48%;
+    position: relative; /* 为子元素绝对定位提供基准 */
+}
+
+/* 右下角文字 */
+.portals-label {
+    position: absolute;
+    bottom: 5px;  /* 距离底部5px */
+    right: 5px;   /* 距离右侧5px */
+    font-size: 12px;
+    color: #070000;  /* 黑色文字 */
+    font-style: italic; /* 斜体 */
+}
+
+
+.right-block {
+    background-color: #ff4444; /* 红色背景 */
+    padding: 20px;
+    width: 48%;
+    text-align: right; /* 新增：文本右对齐 */
+}
+
+.second-row {
+    text-align: center;
+}
+
+.middle-box {
+    display: inline-block;  /* 使边框包裹内容 */
+    background-color: #dff025;
+    padding: 20px 360px;
+    border: 2px solid black; /* 黑色边框 */
+    border-radius: 4px;      /* 可选：圆角 */
+}

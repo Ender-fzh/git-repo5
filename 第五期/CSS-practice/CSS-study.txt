@@ -1,0 +1,60 @@
+CSS简单练习总结
+
+1. 练习思路演进过程
+(1) 初始布局构想
+- 核心目标：实现两行三区域的视觉分层
+  - 第一行：双色区块左右分布（绿左红右）
+  - 第二行：独立居中信息框
+- 技术选型：
+  优先选择Flex布局（而非Float/Grid）
+   通过 justify-content: space-between 实现左右分离
+   使用百分比宽度控制区块占比（48%+48%留间隙）
+
+(2) 右下角标注实现难点
+- 需求演进：在绿色区块添加斜体小字"Portals!"于右下角
+- 技术突破过程：
+  1. 尝试方案：直接添加<p>标签+手动换行
+    失败：文字位置受父容器padding影响无法精准定位
+  2. 优化方案：采用绝对定位坐标系
+   为父容器添加 position: relative（建立定位基准）
+   标注文字设置 position: absolute + bottom/right 坐标
+   调整父容器min-height避免文字溢出（关键！）
+
+(3) 边框增强需求
+- 需求变化：为第二行信息框添加黑边
+- 实现路径：
+   初始问题：直接设置border导致布局偏移
+   解决方案：组合使用 box-sizing: border-box + display: inline-block
+  视觉优化：添加 border-radius: 4px 提升圆角美感
+
+2. 关键问题解决日志
+右下角文字定位失效
+现象：Portals! 显示在绿色区块外部
+诊断：父容器未设置定位基准
+解决：添加 .left-block { position: relative }
+
+Flex布局间隙控制：
+问题：左右区块粘连。
+解决：使用`gap: 20px`替代`margin`，避免计算误差。
+
+边框导致布局坍塌
+现象：添加border后黑框宽度超出预期
+原理分析：默认盒模型计算方式导致
+最终方案：.middle-box { box-sizing: border-box }
+
+3. 技术决策对比表
+| 需求点       |       候选方案          |             选择理由                 |
+| 左右区块分布 | Float vs Flex     |     Flex天然支持间隙控制     |
+| 右下角定位   | Margin vs Absolute| 绝对定位精准控制位置     |
+| 边框实现     | Outline vs Border | Border支持圆角等扩展样式 |
+
+4. 搜索引擎使用记录
+"css右下角文字定位" → 学习absolute定位原理（来源：MDN Web Docs）
+"flex布局间隙设置" → 发现gap属性新特性（来源：CSS-Tricks）
+"边框导致布局偏移" → 理解盒模型计算方式（来源：Stack Overflow）
+
+5. 心得沉淀
+relative+absolute组合是精细定位的黄金拍档
+Flex的gap属性比传统margin更易控制间距
+设置min-height可预防内容溢出导致的布局错乱
+将装饰性样式（如边框）与结构样式分离提升可维护性

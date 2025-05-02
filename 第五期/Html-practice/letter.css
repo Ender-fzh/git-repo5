@@ -1,0 +1,114 @@
+/* style.css */
+body {
+    font-family: "SimSun", "宋体", "Microsoft YaHei", sans-serif;
+    line-height: 1.8;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 30px;
+    background: #fff;
+    color: #333;
+}
+
+address {
+    font-style: normal;
+    margin: 1.5em 0;
+}
+
+h1 {
+    font-size: 1.8em;
+    color: #2c3e50;
+    border-bottom: 2px solid #3498db;
+    padding-bottom: 0.5em;
+    margin: 1.8em 0 1.2em;
+}
+
+h2 {
+    color: #34495e;
+    margin: 1.6em 0 1em;
+    font-size: 1.4em;
+}
+
+blockquote {
+    background: #f8f9fa;
+    border-left: 4px solid #2980b9;
+    margin: 2em 0;
+    padding: 1.2em;
+    color: #2c3e50;
+}
+
+abbr[title] {
+    border-bottom: 1px dotted #666;
+    cursor: help;
+}
+
+a {
+    color: #2980b9;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+a:hover {
+    color: #1a5276;
+    text-decoration: underline;
+}
+
+strong {
+    color: #c0392b;
+}
+
+em {
+    color: #27ae60;
+    font-style: italic;
+}
+
+sub, sup {
+    font-size: 0.75em;
+    line-height: 0;
+    position: relative;
+    vertical-align: baseline;
+}
+
+sub {
+    bottom: -0.25em;
+}
+
+sup {
+    top: -0.5em;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .header-container {
+        flex-direction: column;
+    }
+
+    .sjtu-logo {
+        align-self: center;
+        margin-bottom: 1.5em;
+        width: 150px; 
+    }
+
+    .sender-info {
+        text-align: left;
+    }
+
+    body {
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 1.6em;
+    }
+}
+
+@media print {
+    body {
+        max-width: none;
+        padding: 0;
+    }
+    
+    .math-formula {
+        background: transparent;
+        border: 1px solid #ddd;
+    }
+}
